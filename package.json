@@ -1,11 +1,13 @@
 {
   "name": "bend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "start:dev": "nodemon server.js"
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/server.js",
+    "start:dev": "tsx watch server.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,9 +17,20 @@
   "dependencies": {
     "@fastify/cors": "^11.2.0",
     "@fastify/env": "^5.0.3",
+    "@fastify/middie": "^9.3.1",
     "@fastify/mongodb": "^10.0.0",
+    "@fastify/swagger": "^9.7.0",
+    "@fastify/swagger-ui": "^5.2.5",
+    "dotenv": "^17.2.3",
     "fastify": "^5.7.4",
     "fastify-plugin": "^5.1.0",
+    "morgan": "^1.10.1",
     "nodemon": "^3.1.14"
+  },
+  "devDependencies": {
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^24.5.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
   }
 }
